@@ -26,7 +26,8 @@ public class SelecaoDeMoedas2 extends JPanel{
         //deixando o resultado com duas casas decimais
         Locale locale = new Locale("eng", "US");
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(locale);
-        DecimalFormat decimalFormat = new DecimalFormat("#.##", symbols);
+        String padrao = "###,###.##";
+        DecimalFormat decimalFormat = new DecimalFormat(padrao, symbols);
 
         //convertendo as moedas
         comboBoxMoedas2.addActionListener(actionEvent -> {
