@@ -8,7 +8,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 
-public class Conversor implements ConversorUtil {
+public abstract class Conversor implements ConversorUtil {
     public Conversor(MainFrame mainFrame) {
         if (mainFrame.getComboBoxConverter() != null) {
             setConverterListener(mainFrame);
