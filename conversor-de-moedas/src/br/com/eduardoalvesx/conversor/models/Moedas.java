@@ -1,44 +1,186 @@
 package br.com.eduardoalvesx.conversor.models;
 
-import br.com.eduardoalvesx.conversor.view.MainFrame;
+import br.com.eduardoalvesx.conversor.api.*;
+import com.google.gson.Gson;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
-public class Moedas extends Conversor {
-    public Moedas(MainFrame mainFrame) {
-        super(mainFrame);
+public class Moedas implements Conversor {
+    @Override
+    public Map<String, String> getCodeItens() {
+        Map<String, String> currencyMap = new LinkedHashMap<>();
+
+        currencyMap.put("UAE Dirham", "AED");
+        currencyMap.put("Afghan Afghani", "AFN");
+        currencyMap.put("Albanian Lek", "ALL");
+        currencyMap.put("Armenian Dram", "AMD");
+        currencyMap.put("Netherlands Antillian Guilder", "ANG");
+        currencyMap.put("Angolan Kwanza", "AOA");
+        currencyMap.put("Argentine Peso", "ARS");
+        currencyMap.put("Australian Dollar", "AUD");
+        currencyMap.put("Aruban Florin", "AWG");
+        currencyMap.put("Azerbaijani Manat", "AZN");
+        currencyMap.put("Bosnia and Herzegovina Mark", "BAM");
+        currencyMap.put("Barbados Dollar", "BBD");
+        currencyMap.put("Bangladeshi Taka", "BDT");
+        currencyMap.put("Bulgarian Lev", "BGN");
+        currencyMap.put("Bahraini Dinar", "BHD");
+        currencyMap.put("Burundian Franc", "BIF");
+        currencyMap.put("Bermudian Dollar", "BMD");
+        currencyMap.put("Brunei Dollar", "BND");
+        currencyMap.put("Bolivian Boliviano", "BOB");
+        currencyMap.put("Brazilian Real", "BRL");
+        currencyMap.put("Bahamian Dollar", "BSD");
+        currencyMap.put("Bhutanese Ngultrum", "BTN");
+        currencyMap.put("Botswana Pula", "BWP");
+        currencyMap.put("Belarusian Ruble", "BYN");
+        currencyMap.put("Belize Dollar", "BZD");
+        currencyMap.put("Canadian Dollar", "CAD");
+        currencyMap.put("Congolese Franc", "CDF");
+        currencyMap.put("Swiss Franc", "CHF");
+        currencyMap.put("Chilean Peso", "CLP");
+        currencyMap.put("Chinese Renminbi", "CNY");
+        currencyMap.put("Colombian Peso", "COP");
+        currencyMap.put("Costa Rican Colon", "CRC");
+        currencyMap.put("Cuban Peso", "CUP");
+        currencyMap.put("Cape Verdean Escudo", "CVE");
+        currencyMap.put("Czech Koruna", "CZK");
+        currencyMap.put("Djiboutian Franc", "DJF");
+        currencyMap.put("Danish Krone", "DKK");
+        currencyMap.put("Dominican Peso", "DOP");
+        currencyMap.put("Algerian Dinar", "DZD");
+        currencyMap.put("Egyptian Pound", "EGP");
+        currencyMap.put("Eritrean Nakfa", "ERN");
+        currencyMap.put("Ethiopian Birr", "ETB");
+        currencyMap.put("Euro", "EUR");
+        currencyMap.put("Fiji Dollar", "FJD");
+        currencyMap.put("Falkland Islands Pound", "FKP");
+        currencyMap.put("Faroese Króna", "FOK");
+        currencyMap.put("Pound Sterling", "GBP");
+        currencyMap.put("Georgian Lari", "GEL");
+        currencyMap.put("Guernsey Pound", "GGP");
+        currencyMap.put("Ghanaian Cedi", "GHS");
+        currencyMap.put("Gibraltar Pound", "GIP");
+        currencyMap.put("Gambian Dalasi", "GMD");
+        currencyMap.put("Guinean Franc", "GNF");
+        currencyMap.put("Guatemalan Quetzal", "GTQ");
+        currencyMap.put("Guyanese Dollar", "GYD");
+        currencyMap.put("Hong Kong Dollar", "HKD");
+        currencyMap.put("Honduran Lempira", "HNL");
+        currencyMap.put("Croatian Kuna", "HRK");
+        currencyMap.put("Haitian Gourde", "HTG");
+        currencyMap.put("Hungarian Forint", "HUF");
+        currencyMap.put("Indonesian Rupiah", "IDR");
+        currencyMap.put("Israeli New Shekel", "ILS");
+        currencyMap.put("Manx Pound", "IMP");
+        currencyMap.put("Indian Rupee", "INR");
+        currencyMap.put("Iraqi Dinar", "IQD");
+        currencyMap.put("Iranian Rial", "IRR");
+        currencyMap.put("Icelandic Króna", "ISK");
+        currencyMap.put("Jersey Pound", "JEP");
+        currencyMap.put("Jamaican Dollar", "JMD");
+        currencyMap.put("Jordanian Dinar", "JOD");
+        currencyMap.put("Japanese Yen", "JPY");
+        currencyMap.put("Kenyan Shilling", "KES");
+        currencyMap.put("Kyrgyzstani Som", "KGS");
+        currencyMap.put("Cambodian Riel", "KHR");
+        currencyMap.put("Kiribati Dollar", "KID");
+        currencyMap.put("Comorian Franc", "KMF");
+        currencyMap.put("South Korean Won", "KRW");
+        currencyMap.put("Kuwaiti Dinar", "KWD");
+        currencyMap.put("Cayman Islands Dollar", "KYD");
+        currencyMap.put("Kazakhstani Tenge", "KZT");
+        currencyMap.put("Lao Kip", "LAK");
+        currencyMap.put("Lebanese Pound", "LBP");
+        currencyMap.put("Sri Lanka Rupee", "LKR");
+        currencyMap.put("Liberian Dollar", "LRD");
+        currencyMap.put("Lesotho Loti", "LSL");
+        currencyMap.put("Libyan Dinar", "LYD");
+        currencyMap.put("Moroccan Dirham", "MAD");
+        currencyMap.put("Moldovan Leu", "MDL");
+        currencyMap.put("Malagasy Ariary", "MGA");
+        currencyMap.put("Macedonian Denar", "MKD");
+        currencyMap.put("Burmese Kyat", "MMK");
+        currencyMap.put("Mongolian Tögrög", "MNT");
+        currencyMap.put("Macanese Pataca", "MOP");
+        currencyMap.put("Mauritanian Ouguiya", "MRU");
+        currencyMap.put("Mauritian Rupee", "MUR");
+        currencyMap.put("Maldivian Rufiyaa", "MVR");
+        currencyMap.put("Malawian Kwacha", "MWK");
+        currencyMap.put("Mexican Peso", "MXN");
+        currencyMap.put("Malaysian Ringgit", "MYR");
+        currencyMap.put("Mozambican Metical", "MZN");
+        currencyMap.put("Namibian Dollar", "NAD");
+        currencyMap.put("Nigerian Naira", "NGN");
+        currencyMap.put("Nicaraguan Córdoba", "NIO");
+        currencyMap.put("Norwegian Krone", "NOK");
+        currencyMap.put("Nepalese Rupee", "NPR");
+        currencyMap.put("New Zealand Dollar", "NZD");
+        currencyMap.put("Omani Rial", "OMR");
+        currencyMap.put("Panamanian Balboa", "PAB");
+        currencyMap.put("Peruvian Sol", "PEN");
+        currencyMap.put("Papua New Guinean Kina", "PGK");
+        currencyMap.put("Philippine Peso", "PHP");
+        currencyMap.put("Pakistani Rupee", "PKR");
+        currencyMap.put("Polish Złoty", "PLN");
+        currencyMap.put("Paraguayan Guaraní", "PYG");
+        currencyMap.put("Qatari Riyal", "QAR");
+        currencyMap.put("Romanian Leu", "RON");
+        currencyMap.put("Serbian Dinar", "RSD");
+        currencyMap.put("Russian Ruble", "RUB");
+        currencyMap.put("Rwandan Franc", "RWF");
+        currencyMap.put("Saudi Riyal", "SAR");
+        currencyMap.put("Solomon Islands Dollar", "SBD");
+        currencyMap.put("Seychellois Rupee", "SCR");
+        currencyMap.put("Sudanese Pound", "SDG");
+        currencyMap.put("Swedish Krona", "SEK");
+        currencyMap.put("Singapore Dollar", "SGD");
+        currencyMap.put("Saint Helena Pound", "SHP");
+        currencyMap.put("Sierra Leonean Leone", "SLE");
+        currencyMap.put("Somali Shilling", "SOS");
+        currencyMap.put("Surinamese Dollar", "SRD");
+        currencyMap.put("South Sudanese Pound", "SSP");
+        currencyMap.put("São Tomé and Príncipe Dobra", "STN");
+        currencyMap.put("Syrian Pound", "SYP");
+        currencyMap.put("Eswatini Lilangeni", "SZL");
+        currencyMap.put("Thai Baht", "THB");
+        currencyMap.put("Tajikistani Somoni", "TJS");
+        currencyMap.put("Turkmenistan Manat", "TMT");
+        currencyMap.put("Tunisian Dinar", "TND");
+        currencyMap.put("Tongan Paʻanga", "TOP");
+        currencyMap.put("Turkish Lira", "TRY");
+        currencyMap.put("Trinidad and Tobago Dollar", "TTD");
+        currencyMap.put("Tuvaluan Dollar", "TVD");
+        currencyMap.put("New Taiwan Dollar", "TWD");
+        currencyMap.put("Tanzanian Shilling", "TZS");
+        currencyMap.put("Ukrainian Hryvnia", "UAH");
+        currencyMap.put("Ugandan Shilling", "UGX");
+        currencyMap.put("United States Dollar", "USD");
+        currencyMap.put("Uruguayan Peso", "UYU");
+        currencyMap.put("Uzbekistani So'm", "UZS");
+        currencyMap.put("Venezuelan Bolívar Soberano", "VES");
+        currencyMap.put("Vietnamese Đồng", "VND");
+        currencyMap.put("Vanuatu Vatu", "VUV");
+        currencyMap.put("Samoan Tālā", "WST");
+        currencyMap.put("Central African CFA Franc", "XAF");
+        currencyMap.put("East Caribbean Dollar", "XCD");
+        currencyMap.put("Special Drawing Rights", "XDR");
+        currencyMap.put("West African CFA franc", "XOF");
+        currencyMap.put("CFP Franc", "XPF");
+        currencyMap.put("Yemeni Rial", "YER");
+        currencyMap.put("South African Rand", "ZAR");
+        currencyMap.put("Zambian Kwacha", "ZMW");
+        currencyMap.put("Zimbabwean Dollar", "ZWL");
+
+        return currencyMap;
     }
     @Override
-    public LinkedHashMap<String, String> adicionarNomesResultado() {
-        LinkedHashMap<String, String> nomeMoedasMap = new LinkedHashMap<>();
-        nomeMoedasMap.put("Real para Dolar", "Dolares");
-        nomeMoedasMap.put("Real para Libra", "Libras");
-        nomeMoedasMap.put("Real para Euro", "Euros");
-        nomeMoedasMap.put("Real para Peso Argentino", "Pesos Argentinos");
-        nomeMoedasMap.put("Real para Peso Chileno", "Peso Chileno");
-
-        return nomeMoedasMap;
-    }
-    @Override
-    public LinkedHashMap<String, Double> adicionarItensDesconversao() {
-        LinkedHashMap<String, Double> moedasMap = new LinkedHashMap<>();
-        moedasMap.put("Real para Dolar", 4.80);
-        moedasMap.put("Real para Libra", 6.14);
-        moedasMap.put("Real para Euro", 5.31);
-        moedasMap.put("Real para Peso Argentino", 0.018);
-        moedasMap.put("Real para Peso Chileno", 0.0058);
-
-        return moedasMap;
-    }
-    @Override
-    public LinkedHashMap<String, Double> adicionarItensConversao() {
-        LinkedHashMap<String, Double> moedasMap = new LinkedHashMap<>();
-        moedasMap.put("Dolar para Real", 4.80);
-        moedasMap.put("Libra para Real", 7.17);
-        moedasMap.put("Euro para Real", 5.31);
-        moedasMap.put("Peso Argentino para Real", 0.018);
-        moedasMap.put("Peso Chileno para Real", 0.0058);
-
-        return moedasMap;
+    public Double convert(String base, String target, Integer value) {
+        var response = new ClientHttp().getResponse(Api.CURRENCY_CONVERSOR.getUrl().formatted(ApiKey.getKey(), base,
+                target, value));
+        Gson gson = new Gson();
+        var currency = gson.fromJson(response, CurrencyResponseDTO.class);
+        return currency.conversionResult();
     }
 }
