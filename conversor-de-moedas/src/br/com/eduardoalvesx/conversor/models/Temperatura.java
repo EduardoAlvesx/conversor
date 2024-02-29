@@ -1,7 +1,6 @@
 package br.com.eduardoalvesx.conversor.models;
 
 import br.com.eduardoalvesx.conversor.api.Api;
-import br.com.eduardoalvesx.conversor.api.ApiKey;
 import br.com.eduardoalvesx.conversor.api.ClientHttp;
 import br.com.eduardoalvesx.conversor.api.CurrencyResponseDTO;
 import com.google.gson.Gson;
